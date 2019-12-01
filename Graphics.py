@@ -33,7 +33,7 @@ def btnFun():#按钮触发事件
     global inputEntry
     tag = inputEntry.get()
     DownloadThread.Task(tag).start()#开启线程
-    tkinter.messagebox.showinfo('正在下载。。。', '请稍等片刻。。。下载的资源请在D://豆瓣读书.' + tag + '/下查看')
+    tkinter.messagebox.showinfo('正在下载。。。', '请稍等片刻。。。下载的资源请在./豆瓣读书.' + tag + '/下查看')
 
 if __name__ == '__main__':#程序入口
     reptile = MainWindow()

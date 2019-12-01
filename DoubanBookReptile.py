@@ -15,10 +15,10 @@ class BookNode:
 #爬虫主程序
 class Reptile:
     def __init__(self, tag):
-        if os.path.exists("D://豆瓣读书."+tag) == False:
-            os.makedirs("D://豆瓣读书."+tag)
+        if os.path.exists("./豆瓣读书."+tag) == False:
+            os.makedirs("./豆瓣读书."+tag)
         self.__tag = tag  # 搜索的内容
-        self.__fp = open('D://豆瓣读书.' + self.__tag + "/" + self.__tag + '.txt', 'w', encoding='utf-8') #保存信息的文本
+        self.__fp = open('./豆瓣读书.' + self.__tag + "/" + self.__tag + '.txt', 'w', encoding='utf-8') #保存信息的文本
         self.No = 1#书的标号
         self.__BookNodeList = []#保存书的名字和对应评分
 
@@ -103,7 +103,7 @@ class Reptile:
             pic = requests.get(url, timeout=20)  # 超时异常判断 20秒超时
         except requests.exceptions.ConnectionError:
             print('当前图片无法下载')
-        fp = open("d://豆瓣读书." + self.__tag + "/" + "No." + str(self.No)
+        fp = open("./豆瓣读书." + self.__tag + "/" + "No." + str(self.No)
                   + " " + name.replace('/', '').replace('?', '') + ".jpg", "wb")
         self.No += 1
         # 当书的名字一样时新下载的图片会覆盖掉原来的图片，所以给图片名字前加上标号
